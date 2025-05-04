@@ -5,4 +5,5 @@
  *.log
  *.env
  ssh_key
- ssh_key.pub
+ ssh_key.public
+ 
