@@ -1,9 +1,9 @@
  node_modules
  package-lock.json
+ package.json
  .vscode
  .idea
  *.log
  *.env
  ssh_key
  ssh_key.public
- 
