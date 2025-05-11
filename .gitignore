@@ -1,9 +1,9 @@
- node_modules
- package-lock.json
- package.json
+# Ignore the following files and directories in the repository
+ 
  .vscode
  .idea
  *.log
  *.env
  ssh_key
  ssh_key.public
+node_modules
