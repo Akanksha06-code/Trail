@@ -10,6 +10,11 @@ lerna-debug.log*
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
+
+*.env
+Backend/ssh_key
+Backend/ssh_key.pub
+
 # Runtime data
 pids
 *.pid
