@@ -4,6 +4,6 @@
  .idea
  *.log
  *.env
- ssh_key
- ssh_key.public
+ /ssh_key
+ /ssh_key.public
 node_modules
