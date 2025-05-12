@@ -17,6 +17,9 @@ ssh_key.pub
 Backend/ssh_key
 Backend/ssh_key.pub
 
+income_details.xlsx
+Backend/income_details.xlsx
+
 
 
 pids
@@ -146,3 +149,4 @@ dist
 
 
 
+.env
