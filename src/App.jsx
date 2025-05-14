@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route,Navigate } from "react-router-do
 
 import Login from "./pages/auth/login";
 import Signup from "./pages/auth/signup";
-import Home from "./pages/dashboard/home"
-import Income from "./pages/dashboard/income";
+import Home from "./pages/dashboard/Home"
+import Income from "./pages/dashboard/Income";
 import Expense from "./pages/dashboard/Expense";
 import Subscription from "./pages/dashboard/Subscription";
 import "./index.css";
