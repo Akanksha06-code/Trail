@@ -56,7 +56,7 @@ const Login = () => {
 
   return (
     <AuthLayout>
-      <h2 className="text-3xl font-extrabold text-green-700 mb-2">Welcome Back 👋</h2>
+      <h2 className="text-3xl font-extrabold text-green-900 mb-2">Welcome Back 👋</h2>
       <p className="text-black mb-6 text-sm">Please log in to your account to continue.</p>
 
       {error && <div className="text-red-500 mb-4 text-sm">{error}</div>}
@@ -97,7 +97,7 @@ const Login = () => {
           type="submit"
           className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 rounded-2xl shadow-md transition-all duration-300"
         >
-          Login
+          Login   
         </button>
 
         {/* Optional: Extra Link */}

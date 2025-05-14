@@ -18,10 +18,11 @@ const AuthLayout = ({ children }) => {
   return (
     <div className="flex h-screen w-screen">
       {/* Left Side: Form Section */}
-      <div className="flex items-center justify-center w-full md:w-2/5 px-10 bg-white">
+      <div className="flex items-center justify-center w-full md:w-2/5 px-10 bg-pink-100">
         <div className="w-full max-w-md">
-          <h1 className="text-2xl font-bold text-yellow-500 mb-6">
-            Budget & Subscription Tracker
+          
+          <h1 className="text-3xl font-bold text-emerald-900 mb-6 font-mono text-center">
+            Trail
           </h1>
           {children}
         </div>
@@ -31,7 +32,7 @@ const AuthLayout = ({ children }) => {
       <div className="hidden md:block w-3/5 h-screen relative overflow-hidden">
         <div className="w-48 h-40 rounded bg-yellow-400 absolute -top-7 -left-7 transform rotate-45"></div>
         <div
-          className="absolute inset-0 bg-cover bg-center animation-background"
+          className="absolute inset-0 bg-contain bg-center animation-background "
           style={{
             backgroundImage: `url(${pic2})`, // Replace with the image path
           }}

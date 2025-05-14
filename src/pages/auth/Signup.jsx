@@ -69,7 +69,7 @@ const Signup = () => {
 
   return (
     <AuthLayout>
-      <div className="w-full max-w-2xl mx-auto mt-10 p-6 bg-green-300 rounded-2xl shadow-md">
+      <div className="w-full max-w-2xl mx-auto mt-10 p-6 bg-green-200 rounded-2xl shadow-md">
         <h2 className="text-2xl font-bold text-center text-yellow-500 mb-2">Create an Account</h2>
         <p className="text-center text-gray-600 mb-6">Please fill in the details below</p>
 
@@ -92,7 +92,7 @@ const Signup = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               label="Email Address"
-              placeholder="Enter your email address"
+              placeholder="Enter your email"
               type="email"
               className="rounded-xl"
             />
@@ -112,7 +112,7 @@ const Signup = () => {
               type="submit"
               className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 rounded-2xl shadow-md transition-all duration-300"
             >
-              Login
+              Signup
             </button>
           </div>
 
