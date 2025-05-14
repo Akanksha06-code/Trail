@@ -1,4 +1,4 @@
-const xlsx= require('xlsx');
+const excel= require('exceljs');
 const Income = require('../models/Income');
 
 
@@ -70,10 +70,10 @@ exports.downloadIncomeExcel= async (req, res) => {
             date: item.date.toISOString().split("T")[0], // Format date as YYYY-MM-DD
         }));
         
-        const  wb = xlsx.utils.book_new();
-        const ws = xlsx.utils.json_to_sheet(data);
-        xlsx.utils.book_append_sheet(wb, ws, "Income");
-        xlsx.writeFile(wb, "income_details.xlsx");
+        const  wb = excel.utils.book_new();
+        const ws = excel.utils.json_to_sheet(data);
+        excel.utils.book_append_sheet(wb, ws, "Income");
+        excel.writeFile(wb, "income_details.xlsx");
         res.download('income_details.xlsx');
     } catch (error) {
         res.status(500).json({ message: "Error downloading income sources", error: error.message });

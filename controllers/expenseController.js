@@ -1,4 +1,4 @@
-const xlsx = require("xlsx");
+const excel = require("exceljs");
 const Expense = require("../models/Expense");
 
 //add expense source
@@ -67,10 +67,10 @@ exports.downloadExpenseExcel = async (req, res) => {
       date: item.date.toISOString().split("T")[0], // Format date as YYYY-MM-DD
     }));
 
-    const wb = xlsx.utils.book_new();
-    const ws = xlsx.utils.json_to_sheet(data);
-    xlsx.utils.book_append_sheet(wb, ws, "Expense");
-    xlsx.writeFile(wb, "expense_details.xlsx");
+    const wb = excel.utils.book_new();
+    const ws = excel.utils.json_to_sheet(data);
+    excel.utils.book_append_sheet(wb, ws, "Expense");
+    excel.writeFile(wb, "expense_details.xlsx");
     res.download("expense_details.xlsx");
   } catch (error) {
     res
