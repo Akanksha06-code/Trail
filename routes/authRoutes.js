@@ -4,8 +4,6 @@ const {Protect} = require("../middleware/authmiddleware");
 
 
 
-
-
 const{
     registerUser,
     loginUser,

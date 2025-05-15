@@ -13,7 +13,7 @@ const app = express();
 
 app.use(
     cors({
-        origin: process.env.CORS_ORIGIN,
+        origin: process.env.CORS_ORIGIN||"http://localhost:8000",
         methods: ["GET", "POST", "PUT", "DELETE"],
         allowedHeaders: ["Content-Type", "Authorization"],
 
@@ -29,6 +29,13 @@ app.use("/api/v1/dashboard",dashboardRoutes);
 
 //server uploads folder
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use(express.static(path.join(__dirname, 'client/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/dist', 'index.html'));
+});
+
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () =>
