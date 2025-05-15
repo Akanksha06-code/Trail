@@ -19,9 +19,10 @@ const AuthLayout = ({ children }) => {
     <div className="flex h-screen w-screen">
       {/* Left Side: Form Section */}
       <div className="flex items-center justify-center w-full md:w-2/5 px-10 bg-rose-100">
+      
         <div className="w-full max-w-md">
-          
-          <h1 className="text-3xl font-bold text-emerald-900 mb-6 font-mono ">
+          <img src="/group 2.svg" className='h-20' />
+          <h1 className="text-3xl font-bold text-emerald-900 mb-10 font-mono ml-">
             Trail   
           </h1>
           {children}
