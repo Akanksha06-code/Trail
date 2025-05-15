@@ -8,5 +8,9 @@ export default defineConfig({
     postcss: {
       plugins: [tailwindcss()],
     },
+    
+  server: {
+    historyApiFallback: true,
+  },
   },
 });
