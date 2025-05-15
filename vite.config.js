@@ -11,6 +11,8 @@ export default defineConfig({
     
   server: {
     historyApiFallback: true,
-  },
+     proxy: {
+          '/api/v1/auth': 'https://trail-aykq.onrender.com',
+    },
   },
 });
