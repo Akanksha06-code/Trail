@@ -18,11 +18,11 @@ const AuthLayout = ({ children }) => {
   return (
     <div className="flex h-screen w-screen">
       {/* Left Side: Form Section */}
-      <div className="flex items-center justify-center w-full md:w-2/5 px-10 bg-pink-100">
+      <div className="flex items-center justify-center w-full md:w-2/5 px-10 bg-rose-100">
         <div className="w-full max-w-md">
           
-          <h1 className="text-3xl font-bold text-emerald-900 mb-6 font-mono text-center">
-            Trail
+          <h1 className="text-3xl font-bold text-emerald-900 mb-6 font-mono ">
+            Trail   
           </h1>
           {children}
         </div>
