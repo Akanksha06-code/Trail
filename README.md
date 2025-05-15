@@ -1,2 +1,2 @@
 # Trail
-Its a expense and subscription tracker
+Its an expense and subscription tracker
