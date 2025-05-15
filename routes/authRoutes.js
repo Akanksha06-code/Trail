@@ -2,8 +2,6 @@ const express = require("express");
 const {Protect} = require("../middleware/authmiddleware");
 
 
-
-
 const{
     registerUser,
     loginUser,
