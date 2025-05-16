@@ -7,7 +7,9 @@ import { API_PATHS } from '../../utils/apiPath';
 import InfoCard from '../../components/Cards/InfoCard';
 import { LuHandCoins,LuWalletMinimal } from 'react-icons/lu';
 import {IoMdCard} from "react-icons/io"
+import {LuCreditCard} from "react-icons/lu";
 import  {addThousandsSeparator } from "../../utils/helper";
+import RecentTransactions from '../../components/Dashboard/RecentTransactions';
 
 
 const Home = () => {
@@ -37,17 +39,42 @@ const Home = () => {
   };
   useEffect(() => {
     fetchDashboardData();
+    return () =>{};
   }, []);
 
   return (
     <DashboardLayout activeMenu="Dashboard">
       <div className="my-5 mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-6">*
           <InfoCard 
             icon ={<IoMdCard/>}
             label="Total Balance"
             value={addThousandsSeparator(dashboardData?.totalBalance||0)}
             color="bg-green-500"
+            />
+            <InfoCard 
+            icon ={<LuWalletMinimal/>}
+            label="Total Income"
+            value={addThousandsSeparator(dashboardData?.totalIncome||0)}
+            color="bg-green-500"
+            />
+            <InfoCard 
+            icon ={<LuHandCoins/>}
+            label="Total Expense"
+            value={addThousandsSeparator(dashboardData?.totalExpense||0)}
+            color="bg-primary"
+            />
+            <InfoCard 
+            icon ={<LuCreditCard/>}
+            label="Total Subscription"
+            value={addThousandsSeparator(dashboardData?.totalSubscription||0)}
+            color="bg-yellow-500"
+            />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+          <RecentTransactions
+            transactions = {dashboardData?.recentTransactions}
+            onSeeMore={()=> navigate("/expense")}
             />
         </div>
         </div>
