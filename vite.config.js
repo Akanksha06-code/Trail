@@ -8,6 +8,7 @@ export default defineConfig({
     postcss: {
       plugins: [tailwindcss()],
     },
+<<<<<<< HEAD
     
   // server: {
   //   historyApiFallback: true,
@@ -16,3 +17,7 @@ export default defineConfig({
   //   },
   // },
 }});
+=======
+  },
+});
+>>>>>>> 10a4ea6fb9e6bb17a38295f5843b789324563189
