@@ -8,16 +8,5 @@ export default defineConfig({
     postcss: {
       plugins: [tailwindcss()],
     },
-<<<<<<< HEAD
-    
-  // server: {
-  //   historyApiFallback: true,
-  //    proxy: {
-  //         '/api/v1/auth': 'https://trail-aykq.onrender.com',
-  //   },
-  // },
-}});
-=======
   },
 });
->>>>>>> 10a4ea6fb9e6bb17a38295f5843b789324563189
