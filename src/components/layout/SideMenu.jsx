@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import  CharAvatar  from "../Cards/CharAvatar";
 
 
-const Sidemenu = ({ activemenu }) => {
+const Sidemenu = ({ activemenu,isOpen }) => {
   const { user, clearUser } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -22,10 +22,12 @@ const Sidemenu = ({ activemenu }) => {
     clearUser();
     navigate('/login');
   };
-
+   if(!isOpen) return null;
+else{
   return (
-    <div className="w-64 h-[calc(100vh-61px)] bg-white border-r border-black  p-5 top-[61px] z-10 mt-1">
-      <div className="flex flex-col items-center justify-center gap-3 mb-25">
+   
+    <div className="w-64 h-[calc(100vh-61px)] bg-white border-r border-black  p-5 top-[61px] z-10 mt-1 ">
+      <div className="flex flex-col items-center justify-center gap-3 mb-28">
         {user?.profileImageUrl ? (
           <img
             src={user?.profileImageUrl || ''}
@@ -62,7 +64,7 @@ const Sidemenu = ({ activemenu }) => {
         );
       })}
     </div>
-  );
+  );}
 };
 
 export default Sidemenu;
