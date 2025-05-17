@@ -1,7 +1,7 @@
 import React from "react";
 import {
     LuUtensils,
-    LuTrendingup,
+    LuTrendingUp,
     LuTrendingDown,LuTrash2,    
 } from "react-icons/lu";
 const TransactionInfoCard = ({
@@ -43,7 +43,7 @@ const TransactionInfoCard = ({
                 <h6 className="text-xs font-medium">
                     {type==="income"? "+":"-"} ${amount}
                 </h6>
-                {type==="income"? <LuTrendingup/>:<LuTrendingDown/>}
+                {type==="income"? <LuTrendingUp/>:<LuTrendingDown/>}
             </div>
          </div>
          </div>

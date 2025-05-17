@@ -9,16 +9,16 @@ const RecentTransactions = ({transactions,onSeeMore}) => {
                 <h5 className="text-lg">Recent Transactions</h5>
 
                 <button className="card-btn" onClick={onSeeMore}>
-                    See All <LuAArrowRight className = "text-base"/>
+                    See All <span><LuAArrowRight className = "text-base"/></span>
                     </button>  
            </div>
            <div className="mt-6">
             {transactions?.slice(0,5)?.map((item) => (
             <TransactionInfoCard
             key={item._id}
-            title ={item.type == 'expense'? item.category : item.source}
+            title ={item.type === 'expense'? item.category : item.source}
             icon={item.icon}
-            date={moment(item.data).format("DD MM YYYY")}
+            date={moment(item.date).format("DD MMM YYYY")}
             amount ={item.amount}
             type={item.type}
             hideDeleteBtn
