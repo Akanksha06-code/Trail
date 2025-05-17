@@ -42,7 +42,7 @@ const Sidemenu = ({ activemenu}) => {
                 style="text-xl"
             />
         )}
-        <h4 className="text-yellow-600 font-medium leading-6 mt-4">
+        <h4 className="text-yellow-600 font-medium leading-6 ">
           {user?.fullName || ''}
         </h4>
       </div>
