@@ -1,6 +1,6 @@
 import moment from "moment";
 import React from "react";
-import { LuAArrowRight } from "react-icons/lu";
+import { LuArrowRight } from "react-icons/lu";
 import TransactionInfoCard from "../Cards/TransactionInfoCard";
 const RecentTransactions = ({transactions,onSeeMore}) => {
     return(
@@ -9,7 +9,7 @@ const RecentTransactions = ({transactions,onSeeMore}) => {
                 <h5 className="text-lg">Recent Transactions</h5>
 
                 <button className="card-btn" onClick={onSeeMore}>
-                    See All <span><LuAArrowRight className = "text-base"/></span>
+                    See All <span><LuArrowRight className = "text-base"/></span>
                     </button>  
            </div>
            <div className="mt-6">
