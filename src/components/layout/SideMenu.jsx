@@ -5,11 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import  CharAvatar  from "../Cards/CharAvatar";
 
 
-const Sidemenu = ({ activemenu,isOpen }) => {
+const Sidemenu = ({ activemenu}) => {
   const { user, clearUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleClick = (route) => {
+    
     if (route === 'logout') {
       handleLogout();
       return;
@@ -22,7 +23,7 @@ const Sidemenu = ({ activemenu,isOpen }) => {
     clearUser();
     navigate('/login');
   };
-   if(!isOpen) return null;
+  
 
   return (
    

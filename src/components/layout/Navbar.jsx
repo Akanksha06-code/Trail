@@ -7,7 +7,7 @@ const Navbar = ({activeMenu}) => {
     return(
         <div className="flex gap-5 bg-green-300 border-b border-gray-200/50 backdrop-blur-[2px] py-4 px-7 sticky top-0 z-20">  
             <button
-            className="block  text-black" //for hiding use hidden md:block
+            className="block lg:hidden text-black" //for hiding use hidden md:block
             onClick={() => {
                 setOpenSideMenu(!openSideMenu);
             }}
