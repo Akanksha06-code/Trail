@@ -23,7 +23,7 @@ const Sidemenu = ({ activemenu,isOpen }) => {
     navigate('/login');
   };
    if(!isOpen) return null;
-else{
+
   return (
    
     <div className="w-64 h-[calc(100vh-61px)] bg-white border-r border-black  p-5 top-[61px] z-10 mt-1 ">
@@ -64,7 +64,7 @@ else{
         );
       })}
     </div>
-  );}
+  );
 };
 
 export default Sidemenu;
