@@ -28,7 +28,7 @@ const Sidemenu = ({ activemenu}) => {
   return (
    
     <div className="w-64 h-[calc(100vh-61px)] bg-white border-r border-black  p-5 top-[61px] z-10 mt-1 ">
-      <div className="flex flex-col items-center justify-center gap-3 mb-26">
+      <div className="flex flex-col items-center justify-center gap-3 mb-20">
         {user?.profileImageUrl ? (
           <img
             src={user?.profileImageUrl || ''}
