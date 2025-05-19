@@ -1,5 +1,5 @@
 const Income = require("../models/Income");
-const Expense = require("../models/expense");
+const Expense = require("../models/Expense");
 const { isValidObjectId } = require("mongoose");
 const mongoose = require("mongoose");
 
