@@ -16,7 +16,7 @@ const CustomPieChart =({data,
                 colors,
                 showTestAnchor,
 }) =>{
-    return <ResponsiveContainer width="100" height={380}>
+    return <ResponsiveContainer width="100%" height={380}>
         <PieChart>
             <Pie
                 data = {data}
@@ -25,7 +25,7 @@ const CustomPieChart =({data,
                 cx ="50%"
                 cy = "50%"
                 outerRadius = {130}
-                inerRadius ={100}
+                innerRadius ={100}
                 labelLine={false}
                 >
                     {data.map((entry,index) =>(

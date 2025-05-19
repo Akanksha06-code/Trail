@@ -18,7 +18,7 @@ const Modal = ({children, isOpen, onClose,title}) => {
                 </h3>
             <button 
             type="button"
-            className="text-gray-400 bg-transparent hover:bg-yellow-200 hover:text-yellow-900 rounded-lg text-sm w-8 h-28 inline-flex justify-center items-center dark:hover:bg-yellow-600 dark:hover:text-white cursor-pointer"
+            className="text-gray-400 bg-transparent hover:bg-yellow-200 hover:text-yellow-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center dark:hover:bg-yellow-600 dark:hover:text-white cursor-pointer"
             onClick={onClose}
             >
                 {/* for drawing X */}
