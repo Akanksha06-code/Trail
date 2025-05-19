@@ -36,6 +36,7 @@ export const prepareExpenseBarChartData =(data = []) => {
     return chartData;
 };
 
+import moment from "moment";
 export const prepareIncomeBarChartData = (data=[]) => {
     const sortedData = [...data].sort((a,b)=> new Date(a.date) - new Date(b.date));
 
