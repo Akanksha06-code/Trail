@@ -9,7 +9,7 @@ import { LuHandCoins,LuWalletMinimal } from 'react-icons/lu';
 import {IoMdCard} from "react-icons/io";
 import  {addThousandsSeparator } from "../../utils/helper";
 import RecentTransactions from '../../components/Dashboard/RecentTransactions';
-import FinanceOverview from '../../components/Dashboard/FinanceOverview';
+import FinanceOverview from '../../components/Dashboard/FinanceOverview ';
 import ExpenseTransactions from '../../components/Dashboard/ExpenseTransactions';
 import Last30DaysExpenses from '../../components/Dashboard/Last30DaysExpenses';
 import RecentIncomeWithChart from '../../components/Dashboard/RecentIncomeWithChart';
