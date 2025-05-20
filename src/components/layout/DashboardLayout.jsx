@@ -1,4 +1,4 @@
-import react, { useContext } from 'react';
+import React, { useContext } from 'react';
 import { UserContext } from '../../context/userContext';
 import Navbar from './Navbar';
 import Sidemenu from './SideMenu';
@@ -7,7 +7,7 @@ import Sidemenu from './SideMenu';
 const DashboardLayout = ({children, activeMenu}) => {
     const {user} = useContext(UserContext); // Import the user context to get user data
     return (
-        <div classname ="">
+        <div className ="">
             <Navbar activeMenu={activeMenu} />
 
             {user && (
@@ -16,7 +16,7 @@ const DashboardLayout = ({children, activeMenu}) => {
                     <Sidemenu activeMenu={activeMenu} />
                 </div>
 
-                <div classname="grow mx-5">{children}</div>
+                <div className="grow mx-5">{children}</div>
                 </div>
             )}
             </div>

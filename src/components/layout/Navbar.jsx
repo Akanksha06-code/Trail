@@ -7,7 +7,8 @@ const Navbar = ({activeMenu}) => {
     return(
         <div className="flex gap-5 bg-green-300 border-b border-gray-200/50 backdrop-blur-[2px] py-4 px-7 sticky top-0 z-20">  
             <button
-            className="block text-black" //for hiding use hidden md:block
+            className="block md:hidden text-black" //for hiding use hidden md:block
+            aria-label={openSideMenu ? "Close menu" : "Open menu"} //optional
             onClick={() => {
                 setOpenSideMenu(!openSideMenu);
             }}
@@ -20,7 +21,7 @@ const Navbar = ({activeMenu}) => {
             </button>
             <h2 className="text-2xl font-bold text-gray-800">Expense tracker</h2>
             {openSideMenu &&(
-                <div className="fixed top-[61px] -ml-4">
+                <div className="fixed top-[61px] -ml-4 z-50">
                     <Sidemenu activeMenu={activeMenu} />
                 </div>  
             )}

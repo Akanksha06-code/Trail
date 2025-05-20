@@ -1,17 +1,4 @@
 
-// import React from 'react';
-// import pic from "../../assets/images/pic.jpg";
-// const AuthLayout = ({ children }) => {
-//   return <div> 
-//     <div className ="w-screen h-screen md:w-[60vw] px-12 pt-8 pb-12">
-//       <h1 className ="text-2xl font-bold text-yellow-400">Budget & Subscription Tracker</h1>
-//               {children}
-//       </div>
-//       <img src={pic} alt="pic"className = "hidden md:block h-screen" />
-//     </div>
-// };
-
-// export default AuthLayout;
 import React from 'react';
 import pic2 from '../../assets/images/pic2.png'; // Adjust the path as necessary
 const AuthLayout = ({ children }) => {
@@ -22,7 +9,7 @@ const AuthLayout = ({ children }) => {
       
         <div className="w-full max-w-md">
           <img src="/group 2.svg" className='h-20' />
-          <h1 className="text-3xl font-bold text-emerald-900 mb-10 font-mono ml-">
+          <h1 className="text-3xl font-bold text-emerald-900 mb-10 font-mono ">
             Trail   
           </h1>
           {children}

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import  CharAvatar  from "../Cards/CharAvatar";
 
 
-const Sidemenu = ({ activemenu}) => {
+const Sidemenu = ({ activeMenu}) => {
   const { user, clearUser } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -48,7 +48,7 @@ const Sidemenu = ({ activemenu}) => {
       </div>
 
       {SIDE_MENU_DATA.map((item, index) => {
-        const isActive = activemenu === item.label;
+        const isActive = activeMenu === item.label;
         return (
           <button
             key={`menu_${index}`}
