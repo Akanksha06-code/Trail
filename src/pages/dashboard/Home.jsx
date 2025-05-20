@@ -25,7 +25,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
   const fetchDashboardData = async () => {
-
+    if(loading) return ;
     setLoading(true);
 
     try{
@@ -60,7 +60,7 @@ const Home = () => {
             icon ={<LuWalletMinimal/>}
             label="Total Income"
             value={addThousandsSeparator(dashboardData?.totalIncome||0)}
-            color="bg-green-500"
+            color="bg-yellow-500"
             />
             <InfoCard 
             icon ={<LuHandCoins/>}
