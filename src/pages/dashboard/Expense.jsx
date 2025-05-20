@@ -33,7 +33,7 @@ import DeleteAlert from "../../components/DeleteAlert";
       const response = await axiosInstance.get(
         `${API_PATHS.EXPENSE.GET_ALL_EXPENSE}`
       );
-
+      console.log(`Expense Data ${Array.isArray(response.data)}`)
       if(response.data){
         setExpenseData(response.data)
       }
@@ -79,11 +79,7 @@ import DeleteAlert from "../../components/DeleteAlert";
       );
     }
   };
-  useEffect(()=> {
-    fetchExpenseDetails();
-
-    return () => {};
-}, []);
+  
   //Delete Expense
   const deleteExpense = async(id) => {
     try{

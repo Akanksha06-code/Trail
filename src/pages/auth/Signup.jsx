@@ -7,13 +7,16 @@ import Input from '../../components/Inputs/input';
 import ProfilePhotoSelector from '../../components/Inputs/ProfilePhotoSelector'; 
 import { useContext } from 'react';
 import { UserContext } from '../../context/userContext';
+import { API_PATHS } from '../../utils/apiPath';
+import axiosInstance from '../../utils/axiosInstance'; 
+import uploadImage from '../../utils/uploadImage'
 
 const Signup = () => {
   const [profilePic, setProfilePic] = useState(null);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState(""); 
 
   const {updateUser} = useContext(UserContext); // Import the user context to update user data
   const navigate = useNavigate();
@@ -39,6 +42,7 @@ const Signup = () => {
     // Signup API call
     try{
 
+      let profileImageUrl = "";
       //upload image if present
       if(profilePic){
         const imgUploadRes = await uploadImage(profilePic);
