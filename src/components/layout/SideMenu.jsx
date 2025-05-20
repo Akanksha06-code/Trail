@@ -54,8 +54,8 @@ const Sidemenu = ({ activeMenu}) => {
             key={`menu_${index}`}
             className={`w-full flex items-center gap-3 text-[15px] py-3 px-5 rounded-lg mb-2 transition-all duration-200 ${
               isActive
-                ? 'bg-yellow-700 text-green-900 font-semibold border-l-4 border-yellow-900'
-                : 'hover:bg-yellow-200 text-gray-800'
+                ? ' text-green-900 font-semibold border-l-4 border-yellow-900'
+                : 'hover:bg-yellow-300 text-gray-800'
             }`}
             onClick={() => handleClick(item.path)}
           >
