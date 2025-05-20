@@ -61,17 +61,25 @@ exports.downloadExpenseExcel = async (req, res) => {
   try {
     const expense = await Expense.find({ userId }).sort({ date: -1 });
 
-    const data = expense.map((item) => ({
-      category: item.category,
-      amount: item.amount,
-      date: item.date.toISOString().split("T")[0], // Format date as YYYY-MM-DD
-    }));
+        const workbook = new excel.Workbook();
+        const worksheet = workbook.addWorksheet('Expense');
 
-    const wb = excel.utils.book_new();
-    const ws = excel.utils.json_to_sheet(data);
-    excel.utils.book_append_sheet(wb, ws, "Expense");
-    excel.writeFile(wb, "expense_details.xlsx");
-    res.download("expense_details.xlsx");
+        // Add header row
+        worksheet.addRow(['Category', 'Amount', 'Date', 'Icon']);
+
+        // Add data rows
+        expense.forEach(item => {
+            worksheet.addRow([
+                item.category,
+                item.amount,
+                item.date ? item.date.toISOString().split("T")[0] : "",
+                item.icon || ""
+            ]);
+        });
+
+        const filePath = "expense_details.xlsx";
+        await workbook.xlsx.writeFile(filePath);
+        res.download(filePath);
   } catch (error) {
     res
       .status(500)

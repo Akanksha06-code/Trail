@@ -63,18 +63,27 @@ exports.downloadIncomeExcel= async (req, res) => {
     const userId = req.user.id;
     try {
         const income = await Income.find({ userId }).sort({ date: -1 });
+
+        const workbook = new excel.Workbook();
+        const worksheet = workbook.addWorksheet('Income');
+
+        // Add header row
+        worksheet.addRow(['Source', 'Amount', 'Date', 'Icon']);
+
+        // Add data rows
+        income.forEach(item => {
+            worksheet.addRow([
+                item.source,
+                item.amount,
+                item.date ? item.date.toISOString().split("T")[0] : "",
+                item.icon || ""
+            ]);
+        });
+
+        const filePath = "income_details.xlsx";
+        await workbook.xlsx.writeFile(filePath);
+        res.download(filePath);
         
-        const data = income.map((item) => ({
-            source: item.source,
-            amount: item.amount,
-            date: item.date.toISOString().split("T")[0], // Format date as YYYY-MM-DD
-        }));
-        
-        const  wb = excel.utils.book_new();
-        const ws = excel.utils.json_to_sheet(data);
-        excel.utils.book_append_sheet(wb, ws, "Income");
-        excel.writeFile(wb, "income_details.xlsx");
-        res.download('income_details.xlsx');
     } catch (error) {
         res.status(500).json({ message: "Error downloading income sources", error: error.message });
     }
