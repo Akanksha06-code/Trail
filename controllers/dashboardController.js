@@ -1,32 +1,31 @@
 const Income = require("../models/Income");
 const Expense = require("../models/Expense");
-const { isValidObjectId } = require("mongoose");
-const mongoose = require("mongoose");
+const { isValidObjectId,Types } = require("mongoose");
+
 
 //Dashboard data
 exports.getDashboardData = async (req, res) => {
   try {
     const userId = req.user.id;
-    const userObjectId = new mongoose.Types.ObjectId(req.user.id);
+    const userObjectId = new Types.ObjectId(String(userId));
 
     //fetching all income and expense data
     const totalIncome = await Income.aggregate([
       { $match: { userId: userObjectId } },
-      { $group: { _id: null, totalIncome: { $sum: "$amount" } } },
+      { $group: { _id: null, total: { $sum: "$amount" } } },
     ]);
 
     console.log(totalIncome, {
-      userId,
-      isValidObjectId: isValidObjectId(userId),
+      userId: isValidObjectId(userId)
     });
 
     const totalExpense = await Expense.aggregate([
       { $match: { userId: userObjectId } },
-      { $group: { _id: null, totalExpense: { $sum: "$amount" } } },
+      { $group: { _id: null, total: { $sum: "$amount" } } },
     ]);
 
     //get income transactions in last 60 days
-    {
+    
       const last60DaysIncomeTransactions = await Income.find({
         userId: userObjectId,
         date: { $gte: new Date(Date.now() - 60 * 24 * 60 * 60 * 1000) },
@@ -40,7 +39,7 @@ exports.getDashboardData = async (req, res) => {
 
       //get expense transactions in last 30 days
       const last30DaysExpenseTransactions = await Expense.find({
-        userId: userObjectId,
+        userId,
         date: { $gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000) },
       }).sort({ date: -1 });
 
@@ -51,30 +50,31 @@ exports.getDashboardData = async (req, res) => {
       );
 
       //Fetch last 5 transactions(income and expense)
+        const lastTransactions = [
+              ...(await Income.find({ userId }).sort({ date: -1 }).limit(5)).map(
+                  (txn) => ({
+                      ...txn.toObject(),
+                      type: "Income",
+                  }
+                  )
+              ),
+              ...(await Expense.find({ userId }).sort({ date: -1 }).limit(5)).map(
+                  (txn) => ({
+                      ...txn.toObject(),
+                      type: "expense",
+                  }
+                  )
+              ),
+          ].sort((a, b) => b.date - a.date);//sort latest first
 
-      const lastIncomeTxns = (
-        await Income.find({ userId }).sort({ date: -1 }).limit(5)
-      ).map((txn) => ({
-        ...txn.toObject(),
-        type: "income",
-      }));
-      const lastExpenseTxns = (
-        await Expense.find({ userId }).sort({ date: -1 }).limit(5)
-      ).map((txn) => ({
-        ...txn.toObject(),
-        type: "expense",
-      }));
-
-      const lastTransactions = [...lastIncomeTxns, ...lastExpenseTxns].sort(
-        (a, b) => new Date(b.date) - new Date(a.date)
-      );
+      
 
       res.json({
         totalBalance:
-          (totalIncome[0]?.totalIncome || 0) -
-          (totalExpense[0]?.totalExpense || 0),
-        totalIncome: totalIncome[0]?.totalIncome || 0,
-        totalExpense: totalExpense[0]?.totalExpense || 0,
+          (totalIncome[0]?.total || 0) -
+          (totalExpense[0]?.total || 0),
+        totalIncome: totalIncome[0]?.total || 0,
+        totalExpense: totalExpense[0]?.total || 0,
         last30daysExpenses: {
           total: expenseLast30Days,
           transactions: last30DaysExpenseTransactions,
@@ -85,7 +85,8 @@ exports.getDashboardData = async (req, res) => {
         },
         recentTransactions: lastTransactions,
       });
-    }
+
+      
   } catch (error) {
     res.status(500).json({
       message: "Error fetching dashboard data",
