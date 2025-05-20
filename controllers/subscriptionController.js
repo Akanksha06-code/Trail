@@ -37,7 +37,7 @@ exports.getAllSubscription = async (req, res) => {
     const userId = req.user.id;
     try {
         const subscription = await Subscription.find({ userId }).sort({ date: -1 });
-        res.status(200).json({subscription});
+        res.status(200).json(subscription);
     
     } catch (error) {
         res.status(500).json({ message: "Error retrieving Subscription sources", error: error.message });
