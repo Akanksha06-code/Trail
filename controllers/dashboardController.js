@@ -19,7 +19,7 @@ exports.getDashboardData = async (req, res) => {
       userId: isValidObjectId(userId)
     });
 
-    const totalExpense = await Expense.aggregate([
+    const totalExpenses = await Expense.aggregate([
       { $match: { userId: userObjectId } },
       { $group: { _id: null, total: { $sum: "$amount" } } },
     ]);
@@ -72,9 +72,9 @@ exports.getDashboardData = async (req, res) => {
       res.json({
         totalBalance:
           (totalIncome[0]?.total || 0) -
-          (totalExpense[0]?.total || 0),
+          (totalExpenses[0]?.total || 0),
         totalIncome: totalIncome[0]?.total || 0,
-        totalExpense: totalExpense[0]?.total || 0,
+        totalExpenses: totalExpenses[0]?.total || 0,
         last30daysExpenses: {
           total: expenseLast30Days,
           transactions: last30DaysExpenseTransactions,
@@ -86,7 +86,7 @@ exports.getDashboardData = async (req, res) => {
         recentTransactions: lastTransactions,
       });
 
-      
+
   } catch (error) {
     res.status(500).json({
       message: "Error fetching dashboard data",
