@@ -19,7 +19,7 @@ const Navbar = ({activeMenu}) => {
                     <HiOutlineMenu className="text-2xl" />
                 )}
             </button>
-            <h2 className="text-2xl font-bold text-gray-800">Expense tracker</h2>
+            <h2 className="text-2xl font-bold text-gray-800">TRAIL</h2>
             {openSideMenu &&(
                 <div className="fixed top-[61px] -ml-4 z-50">
                     <Sidemenu activeMenu={activeMenu} />
