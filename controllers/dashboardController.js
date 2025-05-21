@@ -8,7 +8,7 @@ const { ObjectId } = require("mongodb");
 exports.getDashboardData = async (req, res) => {
   try {
     const userId = req.user.id;
-    const userObjectId = new mongoose.Types.createFromTime(req.user.id);
+    const userObjectId = new mongoose.Types.ObjectId(userId);
 
     //fetching all income and expense data
     const totalIncome = await Income.aggregate([
