@@ -52,7 +52,7 @@ const CustomPieChart =({data,
                         y="50%"
                         dy={8}
                         textAnchor="middle"
-                        fills="#333"
+                        fill="#333"
                         fontSize="24px"
                         fontWeight="semi-bold"
                         >
