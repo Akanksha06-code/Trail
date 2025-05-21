@@ -5,6 +5,8 @@ const mongoose = require("mongoose");
 const { ObjectId } = require("mongodb");
 
 //Dashboard data
+
+
 exports.getDashboardData = async (req, res) => {
   try {
     const userId = req.user.id;
@@ -21,7 +23,7 @@ exports.getDashboardData = async (req, res) => {
       isValidObjectId: isValidObjectId(userId),
     });
 
-    const totalExpense = await Expense.aggregate([
+    const totalExpenses = await Expense.aggregate([
       { $match: { userId: userObjectId } },
       { $group: { _id: null, total: { $sum: "$amount" } } }
     ]);
@@ -70,13 +72,13 @@ exports.getDashboardData = async (req, res) => {
       const lastTransactions = [...lastIncomeTxns, ...lastExpenseTxns].sort(
         (a, b) => new Date(b.date) - new Date(a.date)
       );
-
+      
       res.json({
         totalBalance:
           (totalIncome[0]?.total|| 0) -
-          (totalExpense[0]?.total|| 0),
+          (totalExpenses[0]?.total|| 0),
         totalIncome: totalIncome[0]?.total || 0,
-        totalExpense: totalExpense[0]?.total || 0,
+        totalExpenses: totalExpenses[0]?.total || 0,
         last30daysExpenses: {
           total: expenseLast30Days,
           transactions: last30DaysExpenseTransactions,
@@ -87,11 +89,21 @@ exports.getDashboardData = async (req, res) => {
         },
         recentTransactions: lastTransactions,
       });
-    }catch (error) {
+  } catch (error) {
     res.status(500).json({
       message: "Error fetching dashboard data",
       error: error.message,
+    });
+  } finally {
+    // Optionally, you can check if these variables are defined before logging
+    // to avoid ReferenceError if an error occurs before their declaration
+    try {
+      console.log("Total Income:", typeof totalIncome !== "undefined" ? totalIncome : null);
+      console.log("Total Expense:", typeof totalExpenses !== "undefined" ? totalExpenses : null);
+      console.log("Last 60 Days Income Txns:", typeof last60DaysIncomeTransactions !== "undefined" ? last60DaysIncomeTransactions : null);
+      console.log("Recent Transactions:", typeof lastTransactions !== "undefined" ? lastTransactions : null);
+    } catch (logError) {
+      // Logging failed, ignore
     }
-  );
   }
 };
