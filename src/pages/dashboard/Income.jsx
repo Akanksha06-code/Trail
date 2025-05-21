@@ -34,7 +34,7 @@ const Income = () => {
       );
 
       if(response.data){
-        setIncomeData(response.data.data) //.data is extra and suggested by chatgpt
+        setIncomeData(response.data) 
       }
      }catch(error){
       console.log("Something went wrong. Please try again.",error)
