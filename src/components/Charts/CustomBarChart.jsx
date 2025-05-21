@@ -16,7 +16,7 @@ const CustomBarChart =({data}) =>{
 
     //Function to alternate colors
         const getBarColor =(index)=>{
-            return index % 2 === 0 ? "#875cf5" : "#cfbefb" ;
+            return index % 2 === 0 ? "#008000" : "#22c55e" ;
                 };
     return(
         <div className="bg-white mt-6">
