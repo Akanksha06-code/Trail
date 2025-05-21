@@ -15,7 +15,7 @@ const ExpenseOverview = ({ transactions,onExpenseIncome}) => {
 return <div className="card">
         <div className="flex items-center justify-between">
         <div className="">
-            <h5 className="text-lg">Expense Overview </h5>
+            <h5 className="text-lg text-green-600 font-bold">Expense Overview </h5>
             <p className="text-sm text-yellow-500 mt-0.5">
                 Track your spending trends over time and gain insights into where
                 your money goes.
