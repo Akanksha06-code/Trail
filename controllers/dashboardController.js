@@ -2,12 +2,13 @@ const Income = require("../models/Income");
 const Expense = require("../models/Expense");
 const { isValidObjectId } = require("mongoose");
 const mongoose = require("mongoose");
+const { ObjectId } = require("mongodb");
 
 //Dashboard data
 exports.getDashboardData = async (req, res) => {
   try {
     const userId = req.user.id;
-    const userObjectId = new mongoose.Types.ObjectId(req.user.id);
+    const userObjectId = new mongoose.Types.createFromTime(req.user.id);
 
     //fetching all income and expense data
     const totalIncome = await Income.aggregate([
