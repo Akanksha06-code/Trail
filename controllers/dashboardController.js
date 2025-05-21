@@ -12,7 +12,7 @@ exports.getDashboardData = async (req, res) => {
     //fetching all income and expense data
     const totalIncome = await Income.aggregate([
       { $match: { userId: userObjectId } },
-      { $group: { _id: null, total: { $sum: "$amount" } } },
+      { $group: { _id: null, total: { $sum: "$amount" } } }
     ]);
 
     console.log(totalIncome, {
@@ -22,15 +22,16 @@ exports.getDashboardData = async (req, res) => {
 
     const totalExpense = await Expense.aggregate([
       { $match: { userId: userObjectId } },
-      { $group: { _id: null, total: { $sum: "$amount" } } },
+      { $group: { _id: null, total: { $sum: "$amount" } } }
     ]);
 
     //get income transactions in last 60 days
-    {
+    
       const last60DaysIncomeTransactions = await Income.find({
         userId: userObjectId,
-        date: { $gte: new Date(Date.now() - 60 * 24 * 60 * 60 * 1000) },
+        date: { $gte: new Date(Date.now() - 60 * 24 * 60 * 60 * 1000) }
       }).sort({ date: -1 });
+    
 
       //get income for last 60 days
       const incomeLast60Days = last60DaysIncomeTransactions.reduce(
@@ -41,7 +42,7 @@ exports.getDashboardData = async (req, res) => {
       //get expense transactions in last 30 days
       const last30DaysExpenseTransactions = await Expense.find({
         userId: userObjectId,
-        date: { $gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000) },
+        date: { $gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000) }
       }).sort({ date: -1 });
 
       // get total expense for last 30 days
@@ -85,11 +86,11 @@ exports.getDashboardData = async (req, res) => {
         },
         recentTransactions: lastTransactions,
       });
-    }
-  } catch (error) {
+    }catch (error) {
     res.status(500).json({
       message: "Error fetching dashboard data",
       error: error.message,
-    });
+    }
+  );
   }
 };
