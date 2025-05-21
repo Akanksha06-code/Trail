@@ -25,7 +25,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
   const fetchDashboardData = async () => {
-    //if(loading) return ;
+    if(loading) return ;
     setLoading(true);
 
     try{
@@ -79,7 +79,7 @@ const Home = () => {
             <FinanceOverview 
             totalBalance={dashboardData?.totalBalance||0}
             totalIncome={dashboardData?.totalIncome||0}
-            totalExpense={dashboardData?.totalExpense||0}
+            totalExpense={dashboardData?.totalExpenses||0}
             />
 
             <ExpenseTransactions
