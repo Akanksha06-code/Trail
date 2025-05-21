@@ -7,7 +7,7 @@ const CustomTooltip =({active,payload}) => {
                 <p className="text-xs font-semibold text-green-900 mb-1">{payload[0].name}</p>
 
                 <p className="text-sm text-gray-600">
-                    Amount:<span className="text-sm font-medium text-gray-900">${payload[0].value}</span>
+                    Amount:<span className="text-sm font-medium text-gray-900">₹{payload[0].value}</span>
                  </p>
                  </div>
         );
