@@ -48,8 +48,8 @@ const Signup = () => {
       //upload image if present
       if(profilePic){
         const imgUploadRes = await uploadImage(profilePic);
-        console.log("Image upload response:", imgUploadRes); //new added
-        profileImageUrl = imgUploadRes.imageUrl || imgUploadRes.imageURL || "";
+       // console.log("Image upload response:", imgUploadRes); //new added
+        profileImageUrl = imgUploadRes.imageUrl || "";
       }
 
 
