@@ -9,6 +9,7 @@ const expenseRoutes = require("./routes/expenseRoutes");
 const subscriptionRoutes = require("./routes/subscriptionRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
 const mongoose = require("mongoose");
+const uploadRoutes = require("./routes/uploadRoutes"); 
 
 const app = express();
 console.log(process.env.CORS_ORIGIN);
@@ -29,6 +30,13 @@ app.use("/api/v1/subscription",subscriptionRoutes)
 app.use("/api/v1/dashboard", dashboardRoutes);
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
+
+
+
+app.use("/api/v1/upload", uploadRoutes);
+
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

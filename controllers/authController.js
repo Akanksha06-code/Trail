@@ -30,6 +30,7 @@ exports.registerUser = async (req, res) => {
                 password,
                 profileImageUrl,
             });
+            console.log(profileImageUrl);
 
             //generate token
             const token = generateToken(newUser._id);
