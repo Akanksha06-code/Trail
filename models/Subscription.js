@@ -6,7 +6,7 @@ const SubscriptionSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
-    name: {   //Example: netflix, amazon, etc.
+    name: {   //Example: Salary, Business, etc.
         type: String,
         required: true
     },
