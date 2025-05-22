@@ -13,7 +13,8 @@ router.put(
       return res.status(400).json({ error: "No file uploaded" });
     }
     const userId = req.user.id;
-    const imageUrl = `/uploads/${req.file.filename}`;
+    const imageUrl = req.file.path;
+    console.log(req.file);
     try {
       const updatedUser = await User.findByIdAndUpdate(
         userId,
