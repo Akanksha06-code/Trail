@@ -9,6 +9,7 @@ const expenseRoutes = require("./routes/expenseRoutes");
 const subscriptionRoutes = require("./routes/subscriptionRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
 const mongoose = require("mongoose");
+const uploadRoutes =require( "./routes/uploadRoutes.js");
 
 
 const app = express();
@@ -34,6 +35,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 
 
+app.use("/api/v1/upload", uploadRoutes);
 
 
 

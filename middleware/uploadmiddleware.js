@@ -1,12 +1,13 @@
 const multer= require('multer');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const cloudinary = require('./cloudinaryConfig');
 
-const  storage= multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'uploads/');
-    },
-    filename: function (req, file, cb) {
-        cb(null, `${Date.now()} -${file.originalname}`);
-    }
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: 'profile_pics', // folder name in your Cloudinary account
+    allowed_formats: ['jpg', 'jpeg', 'png']
+  }
 });
 
 const  fileFilter= (req, file, cb) => {

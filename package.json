@@ -15,6 +15,7 @@
     "backend": "file:",
     "bcryptjs": "^3.0.2",
     "body-parser": "^2.2.0",
+    "cloudinary": "^2.6.1",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "exceljs": "^4.4.0",
@@ -23,6 +24,7 @@
     "mongodb": "^6.16.0",
     "mongoose": "^8.14.1",
     "multer": "^2.0.0",
+    "multer-storage-cloudinary": "^4.0.0",
     "node-cron": "^4.0.6",
     "nodemailer": "^7.0.3"
   },
