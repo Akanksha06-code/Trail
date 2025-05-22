@@ -13,8 +13,9 @@ router.put(
       return res.status(400).json({ error: "No file uploaded" });
     }
     const userId = req.user.id;
-    const imageUrl = req.file.path;
-    console.log(req.file);
+    const imageUrl = req.file.path; // ✅ Correct — IF you're using multer-storage-cloudinary!
+
+    console.log(req.file.path);
     try {
       const updatedUser = await User.findByIdAndUpdate(
         userId,
