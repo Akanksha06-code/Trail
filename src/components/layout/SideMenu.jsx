@@ -31,8 +31,8 @@ const Sidemenu = ({ activeMenu}) => {
       <div className="flex flex-col items-center justify-center gap-3 mb-16">
         {user?.profileImageUrl ? (
           <img
-            src={user?.profileImageUrl || ''}
-            alt="Profile"
+            src={user?.profileImageUrl || ""}
+            alt="Profile Image"
             className="w-20 h-20 bg-yellow-500 rounded-full"
           />) :(
           <CharAvatar

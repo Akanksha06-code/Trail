@@ -25,6 +25,8 @@ const Signup = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
 
+    let profileImageUrl = "";
+
     if(!fullName) {
       setError("Please enter your full name.");
       return;
@@ -43,11 +45,11 @@ const Signup = () => {
     // Signup API call
     try{
 
-      let profileImageUrl = "";
       //upload image if present
       if(profilePic){
         const imgUploadRes = await uploadImage(profilePic);
-        profileImageUrl = imgUploadRes.imageURL||"";
+        console.log("Image upload response:", imgUploadRes); //new added
+        profileImageUrl = imgUploadRes.imageUrl || imgUploadRes.imageURL || "";
       }
 
 
@@ -82,7 +84,7 @@ const Signup = () => {
 
         <form onSubmit={handleSignup} className="space-y-6">
 
-          <ProfilePhotoSelector image={profilePic} setImage={setProfilePic} />
+          <ProfilePhotoSelector image={profilePic} setImage={setProfilePic} /> 
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Input
