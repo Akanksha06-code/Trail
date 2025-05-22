@@ -26,4 +26,11 @@ export const API_PATHS = {
     IMAGE: {
         UPLOAD_IMAGE: "/api/v1/auth/upload-image",
     },
+
+    SUBSCRIPTION: {
+        ADD_SUBSCRITPTION: "/api/v1/subscription/add",
+        GET_ALL_SUBSCRIPTION: "/api/v1/subscription/get",
+        DELETE_SUBSCRIPTION: (subscriptionId) =>`/api/v1/subscription/${subscriptionId}`,
+        DOWNLOAD_SUBSCRIPTION: "/api/v1/subscription/downloadexcel",
+    },
 };

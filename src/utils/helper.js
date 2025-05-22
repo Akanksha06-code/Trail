@@ -61,3 +61,16 @@ export const prepareExpenseLineChartData = (data = []) => {
 
     return chartData;
 };
+
+export const prepareSubscriptionBarChartData = (data=[]) => {
+    const sortedData = [...data].sort((a,b)=> new Date(a.startdate) - new Date(b.startdate));
+
+    
+    const chartData = sortedData.map((item)=> ({
+        month:moment(item?.startdate).format('DD MMM'),
+        amount: item?.amount,
+        source : item?.name,
+    }));
+
+    return chartData;
+};
