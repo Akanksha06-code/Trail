@@ -15,7 +15,7 @@
     "backend": "file:",
     "bcryptjs": "^3.0.2",
     "body-parser": "^2.2.0",
-    "cloudinary": "^2.6.1",
+    "cloudinary": "^1.41.3",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "exceljs": "^4.4.0",
