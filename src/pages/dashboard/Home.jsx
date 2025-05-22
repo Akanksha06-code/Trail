@@ -22,10 +22,10 @@ const Home = () => {
   const navigate = useNavigate();
 
   const [dashboardData, setDashboardData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false); //true replace with false
 
   const fetchDashboardData = async () => {
-    //if(loading) return ;
+    if(loading) return ; //added new
     setLoading(true);
 
     try{
