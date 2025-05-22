@@ -21,6 +21,7 @@ const Signup = () => {
   const {updateUser} = useContext(UserContext); // Import the user context to update user data
   const navigate = useNavigate();
 
+//handle Signup Form Submit
   const handleSignup = async (e) => {
     e.preventDefault();
 
@@ -46,7 +47,7 @@ const Signup = () => {
       //upload image if present
       if(profilePic){
         const imgUploadRes = await uploadImage(profilePic);
-        profileImageUrl = imgUploadRes.imageUrl||"";
+        profileImageUrl = imgUploadRes.imageURL||"";
       }
 
 
