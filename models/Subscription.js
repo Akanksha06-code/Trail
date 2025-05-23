@@ -6,6 +6,9 @@ const SubscriptionSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
+    icon: {
+        type: String,
+    },
     name: {   //Example: Salary, Business, etc.
         type: String,
         required: true
