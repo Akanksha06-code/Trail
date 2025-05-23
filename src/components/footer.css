@@ -1,0 +1,39 @@
+.footer {
+  width: 100%;
+  background: linear-gradient(90deg, #043520 0%, #065347 100%);
+  color: #fff;
+  padding: 32px 0 24px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 -2px 16px rgba(79, 70, 229, 0.12);
+  position: relative;
+  bottom: 0;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  height: 2px;
+  overflow-y: hidden;
+}
+
+.no-scrollbars {
+  overflow: hidden !important;
+}
+
+.footer h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin: 0;
+  background: linear-gradient(90deg,  #cdfd9c 0%,#f9f6a5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-emphasis-color: transparent;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: color 0.3s;
+  overflow-y: hidden;
+}
+
+.footer h1:hover {
+  filter: brightness(1.2);
+  letter-spacing: 3px;
+}

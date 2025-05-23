@@ -1,0 +1,55 @@
+.card-card {
+  flex: 0 0 auto;
+  width: 32%;
+  display: flex;
+  padding: 20px;
+  max-width: 450px;
+  min-height: 480px;
+  align-items: center;
+  border-radius: 36px;
+  flex-direction: column;
+  background-size: cover;
+  justify-content: flex-end;
+  background-image: url("/rectangle%2035-1500w.png");
+}
+ 
+.card-info {
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  padding-top: var(--dl-layout-space-unit);
+  padding-left: var(--dl-layout-space-twounits);
+  border-radius: 20px;
+  padding-right: var(--dl-layout-space-twounits);
+  flex-direction: column;
+  padding-bottom: var(--dl-layout-space-unit);
+  background-color: var(--dl-color-scheme-white);
+}
+ 
+.card-text {
+  font-size: 20px;
+  font-style: normal;
+  font-family: Urbanist;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: var(--dl-layout-space-halfunit);
+}
+ 
+
+ 
+.cardroot-class-name1 {
+  background-size: cover;
+  background-image: url("/rectangle%2035%20%5B2%5D-200h.png");
+}
+ 
+.cardroot-class-name2 {
+  background-size: cover;
+  background-image: url("/rectangle%2035%20%5B1%5D-200h.png");
+}
+ 
+@media(max-width: 767px) {
+  .card-card {
+    width: 100%;
+  }
+}
