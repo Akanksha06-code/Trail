@@ -6,6 +6,9 @@ const IncomeSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
+    icon: {
+        type: String,
+    },
     source: {   //Example: Salary, Business, etc.
         type: String,
         required: true
